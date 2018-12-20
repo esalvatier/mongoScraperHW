@@ -3,8 +3,8 @@ const db = require("../models");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-module.exports = function (app) {
-  app.get("/scrape", function(req, res) {
+module.exports = function (router) {
+  router.get("/scrape", function(req, res) {
     axios.get("https://io9.gizmodo.com/").then(function(resp) {
       const $ = cheerio.load(resp.data);
 
@@ -14,6 +14,8 @@ module.exports = function (app) {
           newArticle.headline = $(element).find("h1.headline").text();
           newArticle.summary = $(element).find("div.entry-summary").text();
           newArticle.storyType = $(element).find("a.storytype-label").text();
+          newArticle.published = new Date($(element).find("time.meta__time").attr("datetime"));
+          newArticle.author = $(element).find("div.js_meta-byline").text();
           newArticle.link = $(element).find("a.js_entry-link").attr("href");
           db.Article.create(newArticle).then(function(dbResp) {
             console.log(dbResp);
@@ -24,5 +26,4 @@ module.exports = function (app) {
       });
     });
   });
-
 };

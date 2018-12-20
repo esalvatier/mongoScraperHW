@@ -26,7 +26,9 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-require("./routes/api-routes.js")(app);
+var routes = require("./controller/controller");
+
+app.use(routes);
 
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines"

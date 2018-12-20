@@ -19,6 +19,16 @@ var ArticleSchema= new Schema({
     required: true
   },
 
+  published: {
+    type: Date,
+    required: true
+  },
+
+  author: {
+    type: String,
+    required: true
+  },
+
   link: {
     type: String,
     required: true
