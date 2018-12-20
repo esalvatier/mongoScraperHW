@@ -14,6 +14,11 @@ var ArticleSchema= new Schema({
     required: true
   },
 
+  storyType: {
+    type: String,
+    required: true
+  },
+
   link: {
     type: String,
     required: true
