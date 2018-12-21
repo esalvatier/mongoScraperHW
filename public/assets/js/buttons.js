@@ -3,12 +3,17 @@ $(document).on("click", ".collapse-toggle", function(event) {
 
   const formSib = $(this).siblings(".collapsed-element");
   const numCom = $(this).siblings(".collapsed-element").children("div.card").length;
+  let dispTxt;
+  if (formSib.hasClass("new")) {
+    dispTxt = formSib.hasClass("show") ? "+" : "-";
+  } else if (formSib.hasClass("existing")) {
+    dispTxt = numCom + " Comments";
+  }
+  $(this).text(dispTxt);
   if (formSib.hasClass("show")) {
     formSib.removeClass("show");
-    $(this).text(numCom + " Comments");
   } else {
     formSib.addClass("show");
-    $(this).text("Comments");
   }
 });
 

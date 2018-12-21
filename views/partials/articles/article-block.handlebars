@@ -14,7 +14,7 @@
       <hr>
       <div class="row">
         <div class="col-md-6">
-          <button type="button" class="btn btn-info collapse-toggle">+</button>
+          <button type="button" class="btn btn-info collapse-toggle new">+</button>
           <form class="collapsed-element collapse">
             <div class="form-group">
               <label>Name:</label>
@@ -27,7 +27,7 @@
           </form>
         </div>
         <div class="col-md-6">
-          <button type="button" class="btn btn-info collapse-toggle">{{comments.length}} Comments</button>
+          <button type="button" class="btn btn-info collapse-toggle existing">{{comments.length}} Comments</button>
           <div class="collapsed-element collapse">
             {{#each comments}}
               {{> comments/comment-block}}
