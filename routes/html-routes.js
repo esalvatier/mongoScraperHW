@@ -49,7 +49,6 @@ module.exports = function (router) {
         if (dbResp.length < 10) {
           hbsObj.offset.nextActive = false;
         }
-        console.log()
         res.render("index", hbsObj);
       })
       .catch(function(err) {
