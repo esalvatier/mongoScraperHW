@@ -5,10 +5,10 @@ $(document).on("click", ".collapse-toggle", function(event) {
   const numCom = $(this).siblings(".collapsed-element").children("div.card").length;
   if (formSib.hasClass("show")) {
     formSib.removeClass("show");
-    $(this).text("Comments");
+    $(this).text(numCom + " Comments");
   } else {
     formSib.addClass("show");
-    $(this).text(numCom + " Comments");
+    $(this).text("Comments");
   }
 });
 
