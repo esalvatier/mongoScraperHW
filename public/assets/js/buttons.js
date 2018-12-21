@@ -1,12 +1,14 @@
 $(document).on("click", ".collapse-toggle", function(event) {
   event.preventDefault();
+
   const formSib = $(this).siblings(".collapsed-element");
+  const numCom = formSib.find("div.card").length();
   if (formSib.hasClass("show")) {
     formSib.removeClass("show");
-    $(this).text("+");
+    $(this).text("Comments");
   } else {
     formSib.addClass("show");
-    $(this).text("-");
+    $(this).text(numCom + "Comments");
   }
 });
 
