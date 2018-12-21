@@ -8,7 +8,6 @@ $(document).on("click", ".collapse-toggle", function(event) {
     formSib.addClass("show");
     $(this).text("-");
   }
-
 });
 
 $(document).on("click", ".comment-submit", function(event) {
@@ -25,6 +24,4 @@ $(document).on("click", ".comment-submit", function(event) {
       id: $(this).siblings(".form-group").find("input.article-id").val()
     }
   });
-  console.log($(this).siblings(".form-group").find("input.article-id").val());
-  console.log(newComment);
 });

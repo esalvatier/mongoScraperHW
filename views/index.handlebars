@@ -1,6 +1,16 @@
-
+<br>
 <div class="row">
-  <div class="col-md-1"></div>
+  <div class="col-md-5"></div>
+  <div class="col-md-2">
+    {{#with offset}}
+      {{>pagination/pagination-block}}
+    {{/with}}
+  </div>
+  <div class="col-md-5"></div>
+</div>
+<div class="row">
+  <div class="col-md-1">
+  </div>
   <div class="col-md-10" id="articles">
     <ul style="list-style: none;">
       {{#each articles}}
@@ -8,6 +18,16 @@
       {{/each}}
     </ul>
   </div>
-  <div class="col-md-1"></div>
+  <div class="col-md-1">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-2">
+    {{#with offset}}
+      {{>pagination/pagination-block}}
+    {{/with}}
+  </div>
+  <div class="col-md-5"></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

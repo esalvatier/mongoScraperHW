@@ -4,9 +4,6 @@ var mongoose = require("mongoose");
 
 var PORT = 3000;
 
-// Require all models
-var db = require("./models");
-
 // Initialize Express
 var app = express();
 var exphbs = require("express-handlebars");

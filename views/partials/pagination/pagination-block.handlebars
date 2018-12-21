@@ -1,0 +1,16 @@
+<ul class="pagination">
+  <li class="page-item">
+    {{#if prevActive}}
+      <a class="page-link" href={{prev}}>Previous</a>
+    {{else}}
+      <a class="page-link disabled">Previous</a>
+    {{/if}}
+  </li>
+  <li class="page-item">
+    {{#if nextActive}}
+      <a class="page-link" href={{next}}>Next</a>
+    {{else}}
+      <a class="page-link disabled">Next</a>
+    {{/if}}
+  </li>
+</ul>
