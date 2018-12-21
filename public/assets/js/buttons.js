@@ -8,7 +8,7 @@ $(document).on("click", ".collapse-toggle", function(event) {
     $(this).text("Comments");
   } else {
     formSib.addClass("show");
-    $(this).text(numCom + "Comments");
+    $(this).text(numCom + " Comments");
   }
 });
 
