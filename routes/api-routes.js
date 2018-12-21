@@ -1,7 +1,8 @@
-const db = require("../models");
-
+var mongojs = require("mongojs");
 const axios = require("axios");
 const cheerio = require("cheerio");
+
+const db = require("../models");
 
 module.exports = function (router) {
   router.get("/scrape", function(req, res) {
@@ -24,6 +25,21 @@ module.exports = function (router) {
           });
         }
       });
+    });
+  });
+
+  router.post("/submit", function(req, res) {
+    const findID = mongojs.ObjectId(req.body.id);
+    db.Comment.create(req.body.comment).then(function(dbNewComment) {
+      return db.Article.findOneAndUpdate({_id: findID}, { $push: { comments: dbNewComment._id } }, { new: true });
+    })
+    .then(function(dbResp) {
+      // If the User was updated successfully, send it back to the client
+      res.json(dbResp);
+    })
+    .catch(function(err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
     });
   });
 };

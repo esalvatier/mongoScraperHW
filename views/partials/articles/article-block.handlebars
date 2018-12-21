@@ -12,12 +12,29 @@
     <div class="card-body">
       <p>{{summary}}</p>
       <hr>
-      <form>
-
-      </form>
-      {{#each comments}}
-        {{> comments/comment-block}}
-      {{/each}}
+      <div class="row">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-info collapse-toggle">+</button>
+          <form class="collapsed-element collapse">
+            <div class="form-group">
+              <label>Name:</label>
+              <input class="form-control author" name="author" type="text" style="width: 18rem">
+              <label>Comment:</label>
+              <textarea class="form-control body" name="body"></textarea>
+              <input class="article-id" type="hidden" name="id" value={{_id}}>
+            </div>
+            <button type="submit" class="btn btn-primary comment-submit">Submit Comment</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-info collapse-toggle">+</button>
+          <div class="collapsed-element collapse">
+            {{#each comments}}
+              {{> comments/comment-block}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </li>
