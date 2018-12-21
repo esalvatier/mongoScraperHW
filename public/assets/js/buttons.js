@@ -2,7 +2,7 @@ $(document).on("click", ".collapse-toggle", function(event) {
   event.preventDefault();
 
   const formSib = $(this).siblings(".collapsed-element");
-  const numCom = formSib.find("div.card").length();
+  const numCom = formSib.children("div.card").length();
   if (formSib.hasClass("show")) {
     formSib.removeClass("show");
     $(this).text("Comments");
