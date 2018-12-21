@@ -19,9 +19,11 @@ module.exports = function (router) {
           newArticle.author = $(element).find("div.js_meta-byline").text();
           newArticle.link = $(element).find("a.js_entry-link").attr("href");
           db.Article.create(newArticle).then(function(dbResp) {
-            console.log(dbResp);
+            res.json(dbResp);
           }).catch(function(err) {
-            console.log(err.errmsg);
+            if (err.code !== 11000){
+              console.log(err.errmsg);
+            }
           });
         }
       });
@@ -34,8 +36,7 @@ module.exports = function (router) {
       return db.Article.findOneAndUpdate({_id: findID}, { $push: { comments: dbNewComment._id } }, { new: true });
     })
     .then(function(dbResp) {
-      // If the User was updated successfully, send it back to the client
-      res.json(dbResp);
+      res.redirect('back');
     })
     .catch(function(err) {
       // If an error occurs, send it back to the client

@@ -24,4 +24,11 @@ $(document).on("click", ".comment-submit", function(event) {
       id: $(this).siblings(".form-group").find("input.article-id").val()
     }
   });
+  location.reload();
 });
+
+setInterval(function(){ 
+  $.ajax("/scrape", {
+    method: "GET"
+  });
+}, 1320000);
