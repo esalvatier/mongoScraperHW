@@ -5,7 +5,7 @@ $(document).on("click", ".collapse-toggle", function(event) {
   const numCom = $(this).siblings(".collapsed-element").children("div.card").length;
   let dispTxt;
   if (formSib.hasClass("new")) {
-    dispTxt = formSib.hasClass("show") ? "+" : "-";
+    dispTxt = formSib.hasClass("show") ? "-" : "+";
   } else if (formSib.hasClass("existing")) {
     dispTxt = numCom + " Comments";
   }
@@ -15,6 +15,7 @@ $(document).on("click", ".collapse-toggle", function(event) {
   } else {
     formSib.addClass("show");
   }
+  $(this).text(dispTxt);
 });
 
 $(document).on("click", ".comment-submit", function(event) {
